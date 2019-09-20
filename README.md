@@ -1,1 +1,1 @@
-# instapaper_bot
+# insta_bot
