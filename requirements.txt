@@ -11,7 +11,7 @@ itsdangerous==1.1.0
 jedi==0.14.1
 Jinja2==2.10.1
 MarkupSafe==1.1.1
-mkl-fft
+mkl-fft==1.0.14
 mkl-random==1.1.0
 mkl-service==2.3.0
 more-itertools==7.2.0
