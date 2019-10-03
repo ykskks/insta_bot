@@ -17,7 +17,12 @@ URL = os.getenv('URL')
 app = Flask(__name__)
 
 
-@app.route('/', methods=['POST'])
+@app.route('/')
+def hello_world():
+    pritn("Hello, this is an instapaper bot!")
+
+
+@app.route('/pick_article', methods=['POST'])
 def pick_article():
     # 未読の記事と既読の記事（復習がてら）一件ずつ
     i = ipaper(INSTAPAPER_KEY, INSTAPAPER_SECRET)
