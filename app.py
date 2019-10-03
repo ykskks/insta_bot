@@ -1,9 +1,10 @@
 import os
+import random
 
 from flask import Flask
 from instapaper import Instapaper as ipaper
 import requests
-import numpy as np
+
 
 
 INSTAPAPER_KEY = os.getenv('INSTAPAPER_KEY')
@@ -28,7 +29,7 @@ def pick_article():
     i.login(EMAIL_ADRESS, PASSWORD)
 
     # 未読
-    new_article = np.random.choice(i.bookmarks(limit=500))
+    new_article = random.choice(i.bookmarks(limit=500))
     new = requests.post(URL, json={"text": new_article.url})  
 
     id_old = i.folders()[0]["folder_id"]   
@@ -36,7 +37,7 @@ def pick_article():
 
 
     # 既読
-    old_article = np.random.choice(i.bookmarks(limit=500, folder=id_old))      
+    old_article = random.choice(i.bookmarks(limit=500, folder=id_old))      
     old = requests.post(URL, json={"text": old_article.url})  
      
 
