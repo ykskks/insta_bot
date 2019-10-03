@@ -40,6 +40,8 @@ def pick_article():
     # 既読
     old_article = random.choice(i.bookmarks(limit=500, folder=id_old))      
     old = requests.post(URL, json={"text": old_article.url})  
+
+    return "ok"
      
 
 
