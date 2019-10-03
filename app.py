@@ -31,7 +31,7 @@ def pick_article():
 
     # 未読
     new_article = random.choice(i.bookmarks(limit=500))
-    new = requests.post(URL, json={"text": new_article.url})  
+    new = requests.post(URL, json={"text": "新しい記事\n" + new_article.url})  
 
     id_old = i.folders()[0]["folder_id"]   
     new_article.move(id_old) 
@@ -39,7 +39,7 @@ def pick_article():
 
     # 既読
     old_article = random.choice(i.bookmarks(limit=500, folder=id_old))      
-    old = requests.post(URL, json={"text": old_article.url})  
+    old = requests.post(URL, json={"text": "復習\n" + old_article.url})  
 
     return "ok"
      
