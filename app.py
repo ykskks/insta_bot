@@ -18,11 +18,6 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():
-    return "Hello World! This is an instapaper bot!"
-
-
-@app.route('/pick_todays_article')
 def pick_article():
     # 未読の記事と既読の記事（復習がてら）一件ずつ
     i = ipaper(INSTAPAPER_KEY, INSTAPAPER_SECRET)
