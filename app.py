@@ -29,8 +29,9 @@ def pick_article():
     i = ipaper(INSTAPAPER_KEY, INSTAPAPER_SECRET)
     i.login(EMAIL_ADRESS, PASSWORD)
 
-    # 今日の日付
-    today = datetime.date.today().strftime("%-m/%-d")
+    # 今日の日付(USで実行されるのでUSにおける翌日の日付を取得)
+    today = datetime.date.today() + datetime.timedelta(days=1)     
+    today = today.strftime("%-m/%-d")
     r = requests.post(URL, json={"text": f"今日は{today}です!\n"})
 
     # 既読の記事からランダムに復習
